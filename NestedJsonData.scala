@@ -15,5 +15,18 @@ people.registerTempTable("people")
 
  add.printSchema()
 
- 
+
+//Geo data2
+
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+val people = sqlContext.jsonFile("GeoJson.json")
+val geo = sqlContext.jsonFile("GeoJson.json")
+geo.printSchema()
+geo.printSchema()
+geo.registerTempTable("geo")
+scala> val add = sqlContext.sql("select * from geo").show()
+
+
+
+
 
